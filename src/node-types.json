@@ -1,0 +1,457 @@
+[
+  {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "variable_getter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entity_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "event_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "event_identifier",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "event_region_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "event_region_identifier",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_region_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "extension_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "extension_identifier",
+          "named": true
+        },
+        {
+          "type": "variable_getter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "extension_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "primitive_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "random_region_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "random_region_identifier",
+          "named": true
+        },
+        {
+          "type": "variable_getter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "random_region_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "translation_unit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "entity_type",
+          "named": true
+        },
+        {
+          "type": "event_declaration",
+          "named": true
+        },
+        {
+          "type": "event_region_declaration",
+          "named": true
+        },
+        {
+          "type": "extension_call",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "random_region_call",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "variable_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "entity_type",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_getter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "variable_getter",
+          "named": true
+        },
+        {
+          "type": "variable_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "entity_type",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "Bool",
+    "named": false
+  },
+  {
+    "type": "Contains",
+    "named": false
+  },
+  {
+    "type": "ConvertToBool",
+    "named": false
+  },
+  {
+    "type": "ConvertToFloat",
+    "named": false
+  },
+  {
+    "type": "ConvertToInt",
+    "named": false
+  },
+  {
+    "type": "ConvertToString",
+    "named": false
+  },
+  {
+    "type": "EndsWith",
+    "named": false
+  },
+  {
+    "type": "Equals",
+    "named": false
+  },
+  {
+    "type": "Float",
+    "named": false
+  },
+  {
+    "type": "Greater",
+    "named": false
+  },
+  {
+    "type": "Int",
+    "named": false
+  },
+  {
+    "type": "Less",
+    "named": false
+  },
+  {
+    "type": "Not",
+    "named": false
+  },
+  {
+    "type": "OnChatInput",
+    "named": false
+  },
+  {
+    "type": "OnFirstLoad",
+    "named": false
+  },
+  {
+    "type": "OnPlayerDieByPlayer",
+    "named": false
+  },
+  {
+    "type": "OnPlayerDieByTitan",
+    "named": false
+  },
+  {
+    "type": "OnPlayerEnterRegion",
+    "named": false
+  },
+  {
+    "type": "OnPlayerLeaveRegion",
+    "named": false
+  },
+  {
+    "type": "OnRoundStart",
+    "named": false
+  },
+  {
+    "type": "OnTitanDie",
+    "named": false
+  },
+  {
+    "type": "OnTitanEnterRegion",
+    "named": false
+  },
+  {
+    "type": "OnTitanLeaveRegion",
+    "named": false
+  },
+  {
+    "type": "OnUpdate",
+    "named": false
+  },
+  {
+    "type": "OrEqual",
+    "named": false
+  },
+  {
+    "type": "Player",
+    "named": false
+  },
+  {
+    "type": "RegionRandom",
+    "named": false
+  },
+  {
+    "type": "StartsWith",
+    "named": false
+  },
+  {
+    "type": "String",
+    "named": false
+  },
+  {
+    "type": "Than",
+    "named": false
+  },
+  {
+    "type": "Titan",
+    "named": false
+  },
+  {
+    "type": "Variable",
+    "named": false
+  },
+  {
+    "type": "X",
+    "named": false
+  },
+  {
+    "type": "Y",
+    "named": false
+  },
+  {
+    "type": "Z",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "class_type",
+    "named": true
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "number_literal",
+    "named": true
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
