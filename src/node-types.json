@@ -111,20 +111,6 @@
     "type": "expression",
     "named": true,
     "fields": {
-      "field_identifier": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
       "function": {
         "multiple": false,
         "required": true,
@@ -172,6 +158,10 @@
           {
             "type": ".",
             "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
           },
           {
             "type": "identifier",

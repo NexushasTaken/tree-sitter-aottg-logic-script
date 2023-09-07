@@ -50,7 +50,7 @@ module.exports = grammar({
     ),
     field_expression: $ => seq(
       field("identifier",
-        seq($.identifier, ".")
+        seq(choice($.expression, $.identifier), ".")
       ),
       field("field_identifier", $.identifier),
     ),
@@ -60,7 +60,6 @@ module.exports = grammar({
         $.identifier,
       )),
       field("parameters", $.parameter_list),
-      field("field_identifier", optional(seq(".", $.expression))),
     ),
 
     if_statement: $ => seq(
