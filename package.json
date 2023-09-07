@@ -1,7 +1,7 @@
 {
-  "name": "tree-sitter-aottg-custom-logic",
+  "name": "tree-sitter-aottg-logic-script",
   "version": "1.0.0",
-  "description": "Treesitter for AoTTG Custom Logic",
+  "description": "Treesitter for AoTTG Logic Script",
   "main": "bindings/node",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,12 @@
     "lexer",
     "parser"
   ],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/NexushasTaken/tree-sitter-aottg-logic-script"
+  },
+  "author": "NexushasTaken",
+  "license": "MIT",
   "dependencies": {
     "nan": "^2.17.0"
   },
@@ -20,7 +24,11 @@
   },
   "tree-sitter": [
     {
-      "file-types": "ls"
+      "file-types": ["ls", "txt"],
+      "scope": "source.ls",
+      "highlights": [
+        "queries/highlights.scm"
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "aottgls",
+  "name": "ls",
   "rules": {
     "source_file": {
       "type": "CHOICE",
@@ -7,8 +7,17 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "event_definition"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "event_definition"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "comment"
+              }
+            ]
           }
         },
         {
@@ -82,6 +91,10 @@
         ]
       }
     },
+    "comment": {
+      "type": "PATTERN",
+      "value": "\\/\\/.*;?"
+    },
     "identifier": {
       "type": "PATTERN",
       "value": "[a-zA-Z]+"
@@ -101,11 +114,24 @@
               "name": "while_statement"
             },
             {
+              "type": "SYMBOL",
+              "name": "foreach_statement"
+            },
+            {
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "expression"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "expression"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "comment"
+                    }
+                  ]
                 },
                 {
                   "type": "STRING",
@@ -365,6 +391,18 @@
           }
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "body",
           "content": {
@@ -395,6 +433,18 @@
           }
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "body",
           "content": {
@@ -421,12 +471,20 @@
           ]
         },
         {
+          "type": "STRING",
+          "value": "("
+        },
+        {
           "type": "FIELD",
           "name": "value",
           "content": {
             "type": "SYMBOL",
             "name": "string_literal"
           }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         },
         {
           "type": "FIELD",

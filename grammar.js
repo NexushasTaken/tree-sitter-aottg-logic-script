@@ -7,10 +7,10 @@ function commaSep(rule) {
 }
 
 module.exports = grammar({
-  name: "aottgls",
+  name: "ls",
 
   rules: {
-    source_file: $ => optional(repeat($.event_definition)),
+    source_file: $ => optional(repeat(choice($.event_definition, $.comment))),
 
     boolean_literal: _ => choice("true", "false"),
     number_literal: _ => /-?[0-9]+(.[0-9]+)?/,
@@ -21,14 +21,15 @@ module.exports = grammar({
       $.string_literal,
     )),
 
-
+    comment: $ => /\/\/.*;?/,
     identifier: $ => /[a-zA-Z]+/,
 
     statement: $ => seq(
       choice(
         $.if_statement,
         $.while_statement,
-        seq($.expression, ";"),
+        $.foreach_statement,
+        seq(choice($.expression, $.comment), ";"),
       ),
     ),
     compound_statement: $ => seq(
@@ -65,16 +66,18 @@ module.exports = grammar({
     if_statement: $ => seq(
       "If",
       field("condition", alias($.parameter_list, $.condition_clause)),
+      optional(";"), // TODO: Fix this
       field("body", $.compound_statement),
     ),
     while_statement: $ => seq(
       "While",
       field("condition", alias($.parameter_list, $.condition_clause)),
+      optional(";"), // TODO: Fix this
       field("body", $.compound_statement),
     ),
     foreach_statement: $ => seq(
       choice("ForeachTitan", "ForeachPlayer"),
-      field("value", $.string_literal),
+      "(", field("value", $.string_literal), ")",
       field("body", $.compound_statement),
     ),
   }
