@@ -54,6 +54,11 @@
     }
   },
   {
+    "type": "content",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "event_definition",
     "named": true,
     "fields": {
@@ -185,12 +190,12 @@
           }
         ]
       },
-      "value": {
+      "identifier": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "string_literal",
+            "type": "condition_clause",
             "named": true
           }
         ]
@@ -310,7 +315,18 @@
   {
     "type": "string_literal",
     "named": true,
-    "fields": {}
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "content",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "while_statement",

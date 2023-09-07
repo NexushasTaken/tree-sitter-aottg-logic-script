@@ -14,7 +14,11 @@ module.exports = grammar({
 
     boolean_literal: _ => choice("true", "false"),
     number_literal: _ => /-?[0-9]+(.[0-9]+)?/,
-    string_literal: _ => seq('"', optional(repeat(/./)), '"'),
+    string_literal: $ => seq(
+      '"',
+      field("content", alias(optional(repeat(/./)), $.content)),
+      '"'
+    ),
     _literal: $ => field("value", choice(
       $.boolean_literal,
       $.number_literal,
@@ -76,7 +80,7 @@ module.exports = grammar({
     ),
     foreach_statement: $ => seq(
       choice("ForeachTitan", "ForeachPlayer"),
-      "(", field("value", $.string_literal), ")",
+      field("identifier", alias($.parameter_list, $.condition_clause)),
       field("body", $.compound_statement),
     ),
   }
