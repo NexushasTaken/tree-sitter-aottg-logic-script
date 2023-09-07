@@ -242,6 +242,21 @@
     }
   },
   {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "event_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "statement",
     "named": true,
     "fields": {},
@@ -268,21 +283,6 @@
     "type": "string_literal",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "translation_unit",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "event_definition",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "while_statement",

@@ -10,7 +10,7 @@ module.exports = grammar({
   name: "aottgls",
 
   rules: {
-    translation_unit: $ => optional(repeat($.event_definition)),
+    source_file: $ => optional(repeat($.event_definition)),
 
     boolean_literal: _ => choice("true", "false"),
     number_literal: _ => /-?[0-9]+(.[0-9]+)?/,
