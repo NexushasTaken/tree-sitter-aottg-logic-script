@@ -67,18 +67,5 @@ module.exports = grammar({
       ),
       field("arguments", $.argument_list),
     ),
-    // field_expression: $ => seq(
-    //   field("identifier",
-    //     seq(choice($.call_expression, $.identifier), ".")
-    //   ),
-    //   field("field_identifier", $.identifier),
-    // ),
-    // call_expression: $ => seq(
-    //   field("function", choice(
-    //     $.field_expression,
-    //     $.identifier,
-    //   )),
-    //   field("parameters", $.argument_list),
-    // ),
   }
 });
