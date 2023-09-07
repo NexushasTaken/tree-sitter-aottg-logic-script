@@ -20,8 +20,7 @@ module.exports = grammar({
       $.condition,
       $.event_region_declaration,
       $.event_declaration,
-      $.extension_call,
-      $.random_region_call,
+      $.function_call,
     ),
 
     boolean_literal: _ => choice("true", "false"),
@@ -100,25 +99,16 @@ module.exports = grammar({
       "{", "}",
     ),
 
-    // TODO: Should i combine these two? {
-    extension_identifier: $ => choice(
+    function_identifier: $ => choice(
       "ConvertToInt",
       "ConvertToBool",
       "ConvertToString",
       "ConvertToFloat",
+      seq("RegionRandom", choice("X", "Y", "Z")),
     ),
-    extension_call: $ => seq(
-      $.extension_identifier,
+    function_call: $ => seq(
+      $.function_identifier,
       "(", commaSep1($.variable_getter), ")",
     ),
-
-    random_region_identifier: $ => seq(
-      "RegionRandom", choice("X", "Y", "Z")
-    ),
-    random_region_call: $ => seq(
-      $.random_region_identifier,
-      "(", commaSep1($.variable_getter), ")",
-    ),
-    // }
   }
 });

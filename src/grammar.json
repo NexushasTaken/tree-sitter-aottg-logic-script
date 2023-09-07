@@ -53,11 +53,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "extension_call"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "random_region_call"
+          "name": "function_call"
         }
       ]
     },
@@ -518,7 +514,7 @@
         }
       ]
     },
-    "extension_identifier": {
+    "function_identifier": {
       "type": "CHOICE",
       "members": [
         {
@@ -536,83 +532,41 @@
         {
           "type": "STRING",
           "value": "ConvertToFloat"
-        }
-      ]
-    },
-    "extension_call": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "extension_identifier"
-        },
-        {
-          "type": "STRING",
-          "value": "("
         },
         {
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "variable_getter"
+              "type": "STRING",
+              "value": "RegionRandom"
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "variable_getter"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "random_region_identifier": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "RegionRandom"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "X"
-            },
-            {
-              "type": "STRING",
-              "value": "Y"
-            },
-            {
-              "type": "STRING",
-              "value": "Z"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "X"
+                },
+                {
+                  "type": "STRING",
+                  "value": "Y"
+                },
+                {
+                  "type": "STRING",
+                  "value": "Z"
+                }
+              ]
             }
           ]
         }
       ]
     },
-    "random_region_call": {
+    "function_call": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "random_region_identifier"
+          "name": "function_identifier"
         },
         {
           "type": "STRING",

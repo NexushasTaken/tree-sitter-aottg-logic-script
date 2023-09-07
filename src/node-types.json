@@ -77,7 +77,7 @@
     "fields": {}
   },
   {
-    "type": "extension_call",
+    "type": "function_call",
     "named": true,
     "fields": {},
     "children": {
@@ -85,7 +85,7 @@
       "required": true,
       "types": [
         {
-          "type": "extension_identifier",
+          "type": "function_identifier",
           "named": true
         },
         {
@@ -96,36 +96,12 @@
     }
   },
   {
-    "type": "extension_identifier",
+    "type": "function_identifier",
     "named": true,
     "fields": {}
   },
   {
     "type": "primitive_type",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "random_region_call",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "random_region_identifier",
-          "named": true
-        },
-        {
-          "type": "variable_getter",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "random_region_identifier",
     "named": true,
     "fields": {}
   },
@@ -167,7 +143,7 @@
           "named": true
         },
         {
-          "type": "extension_call",
+          "type": "function_call",
           "named": true
         },
         {
@@ -176,10 +152,6 @@
         },
         {
           "type": "primitive_type",
-          "named": true
-        },
-        {
-          "type": "random_region_call",
           "named": true
         },
         {
