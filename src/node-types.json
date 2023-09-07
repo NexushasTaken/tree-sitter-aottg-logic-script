@@ -1,26 +1,6 @@
 [
   {
-    "type": "boolean_literal",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "compound_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "statement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "condition_clause",
+    "type": "argument_list",
     "named": true,
     "fields": {
       "value": {
@@ -47,7 +27,57 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "call_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "call_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "compound_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "statement",
           "named": true
         }
       ]
@@ -82,7 +112,7 @@
         "required": true,
         "types": [
           {
-            "type": "parameter_list",
+            "type": "argument_list",
             "named": true
           }
         ]
@@ -108,40 +138,24 @@
     }
   },
   {
-    "type": "expression",
-    "named": true,
-    "fields": {
-      "function": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "field_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "parameters": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "parameter_list",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "field_expression",
     "named": true,
     "fields": {
-      "field_identifier": {
+      "argument": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "field": {
         "multiple": false,
         "required": true,
         "types": [
@@ -150,111 +164,7 @@
             "named": true
           }
         ]
-      },
-      "identifier": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
       }
-    }
-  },
-  {
-    "type": "foreach_statement",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "compound_statement",
-            "named": true
-          }
-        ]
-      },
-      "identifier": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "condition_clause",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "if_statement",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "compound_statement",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "condition_clause",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "parameter_list",
-    "named": true,
-    "fields": {
-      "value": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "boolean_literal",
-            "named": true
-          },
-          {
-            "type": "number_literal",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -281,57 +191,43 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "call_expression",
+          "named": true
+        },
         {
           "type": "comment",
           "named": true
         },
         {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "foreach_statement",
-          "named": true
-        },
-        {
-          "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "while_statement",
+          "type": "compound_statement",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "while_statement",
+    "type": "string_literal",
     "named": true,
     "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
+      "content": {
+        "multiple": true,
+        "required": false,
         "types": [
           {
-            "type": "compound_statement",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "condition_clause",
+            "type": "string_content",
             "named": true
           }
         ]
       }
     }
+  },
+  {
+    "type": "\"",
+    "named": false
   },
   {
     "type": "(",
@@ -351,22 +247,6 @@
   },
   {
     "type": ";",
-    "named": false
-  },
-  {
-    "type": "ForeachPlayer",
-    "named": false
-  },
-  {
-    "type": "ForeachTitan",
-    "named": false
-  },
-  {
-    "type": "If",
-    "named": false
-  },
-  {
-    "type": "While",
     "named": false
   },
   {
@@ -394,7 +274,7 @@
     "named": true
   },
   {
-    "type": "string_literal",
+    "type": "string_content",
     "named": true
   },
   {

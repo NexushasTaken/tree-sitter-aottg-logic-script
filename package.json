@@ -24,11 +24,8 @@
   },
   "tree-sitter": [
     {
-      "file-types": ["ls", "txt"],
-      "scope": "source.ls",
-      "highlights": [
-        "queries/highlights.scm"
-      ]
+      "file-types": ["cl", "txt"],
+      "scope": "source.cl"
     }
   ]
 }
