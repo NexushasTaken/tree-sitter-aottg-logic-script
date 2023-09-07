@@ -39,7 +39,7 @@
   - OnPlayerDieByTitan(string VariablePlayerName, string VariableTitanName)
   - OnPlayerDieByPlayer(string VariablePlayerName, string VariablePlayerName)
   - OnChatInput(string VariableStringName) – MasterClient only
-2. [ ] LoopTypes
+2. [x] LoopTypes
   - If(condition)
   - While(condition)
   - ForeachTitan(string VariableTitanName)
@@ -77,7 +77,7 @@
   - Titan
     - Titan.Equals(Titan base, Titan compare)
     - Titan.NotEquals(Titan base, Titan compare)
-4. Actions
+4. [x] Actions
   - Class VariableInt
     - VariableInt.Set(string variableName, int value)
     - VariableInt.Add(string variableName, int value)
@@ -138,13 +138,13 @@
     - Game.LoseGame(bool clearVariables)
     - Game.WinGame(bool clearVariables)
     - Game.Restart(bool clearVariables)
-5. Return Properties
-  - [x] Class Primitives
+5. [x] Return Properties
+  - Class Primitives
     - Integers – any non-decimal
     - Boolean – true or false
     - Float – any decimal
     - String – enclosed by " "
-  - [x] Class Variable
+  - Class Variable
     - int VariableInt(string variableName)
     - bool VariableBool(string variableName)
     - string VariableString(string variableName)
@@ -177,7 +177,7 @@
     - float titan.GetPositionX()
     - float titan.GetPositionY()
     - float titan.GetPositionZ()
-  - [x] Class Region
+  - Class Region
     - float RegionRandomX(string RegionName)
     - float RegionRandomY(string RegionName)
     - float RegionRandomZ(string RegionName)

@@ -10,97 +10,72 @@ module.exports = grammar({
   name: "aottgls",
 
   rules: {
-    translation_unit: $ => optional(repeat($._top_level_item)),
-    _top_level_item: $ => choice(
-      $._literal,
-      $.class_type,
-      $.primitive_type,
-      $.entity_type,
-      $.variable_type,
-      $.condition,
-      $.event_declaration,
-      $.function_call,
-    ),
+    translation_unit: $ => optional(repeat($.event_definition)),
 
     boolean_literal: _ => choice("true", "false"),
     number_literal: _ => /-?[0-9]+(.[0-9]+)?/,
     string_literal: _ => seq('"', optional(repeat(/./)), '"'),
-    _literal: $ => choice(
+    _literal: $ => field("value", choice(
       $.boolean_literal,
       $.number_literal,
       $.string_literal,
-    ),
+    )),
 
-    class_type: $ => "Game",
-    primitive_type: _ => choice(
-      "Int",
-      "Bool",
-      "String",
-      "Float",
-    ),
-    entity_type: _ => choice(
-      "Player",
-      "Titan",
-    ),
-    type: $ => choice($.primitive_type, $.entity_type),
-    variable_type: $ => seq(
-      "Variable",
+
+    identifier: $ => /[a-zA-Z]+/,
+
+    statement: $ => seq(
       choice(
-        $.primitive_type,
-        $.entity_type
+        $.if_statement,
+        $.while_statement,
+        seq($.expression, ";"),
       ),
     ),
-    variable_getter: $ => choice(
-      seq($.variable_type, "(", $.variable_getter, ")"),
-      $._literal,
+    compound_statement: $ => seq(
+      "{",
+      repeat($.statement),
+      "}",
+    ),
+    parameter_list: $ => seq(
+      "(",
+      commaSep(choice($.expression, $._literal)),
+      ")"
+    ),
+    event_definition: $ => seq(
+      field("identifier", $.identifier),
+      field("region_name", optional(seq("[", $.string_literal, "]"))),
+      field("parameters", $.parameter_list),
+      field("body", $.compound_statement),
+    ),
+    field_expression: $ => seq(
+      field("identifier",
+        seq($.identifier, ".")
+      ),
+      field("field_identifier", $.identifier),
+    ),
+    expression: $ => seq(
+      field("function", choice(
+        $.field_expression,
+        $.identifier,
+      )),
+      field("parameters", $.parameter_list),
+      field("field_identifier", optional(seq(".", $.expression))),
     ),
 
-    _equality_expression: _ => seq(
-      optional("Not"),
-      choice("Equals", "Contains", "StartsWith", "EndsWith"),
+    if_statement: $ => seq(
+      "If",
+      field("condition", alias($.parameter_list, $.condition_clause)),
+      field("body", $.compound_statement),
     ),
-    _inequality_expression: _ => seq(
-      choice("Less", "Greater"),
-      "Than",
-      optional("OrEqual"),
+    while_statement: $ => seq(
+      "While",
+      field("condition", alias($.parameter_list, $.condition_clause)),
+      field("body", $.compound_statement),
     ),
-    condition: $ => seq(
-      $.type,
-      ".",
-      choice($._equality_expression, $._inequality_expression),
-      "(", commaSep($.variable_getter), ")",
-    ),
-
-    event_identifier: $ => choice(
-      "OnFirstLoad",
-      "OnRoundStart",
-      "OnUpdate",
-      "OnTitanDie",
-      "OnPlayerDieByTitan",
-      "OnPlayerDieByPlayer",
-      "OnChatInput",
-      "OnPlayerEnterRegion",
-      "OnPlayerLeaveRegion",
-      "OnTitanEnterRegion",
-      "OnTitanLeaveRegion",
-    ),
-    event_declaration: $ => seq(
-      $.event_identifier,
-      optional(seq("[", $.string_literal, "]")),
-      "(", commaSep($.string_literal), ")",
-      "{", "}",
-    ),
-
-    function_identifier: $ => choice(
-      "ConvertToInt",
-      "ConvertToBool",
-      "ConvertToString",
-      "ConvertToFloat",
-      seq("RegionRandom", choice("X", "Y", "Z")),
-    ),
-    function_call: $ => seq(
-      $.function_identifier,
-      "(", commaSep1($.variable_getter), ")",
+    foreach_statement: $ => seq(
+      choice("ForeachTitan", "ForeachPlayer"),
+      field("value", $.string_literal),
+      field("body", $.compound_statement),
     ),
   }
 });
