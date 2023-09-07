@@ -54,11 +54,6 @@
     }
   },
   {
-    "type": "content",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "event_definition",
     "named": true,
     "fields": {
@@ -313,22 +308,6 @@
     }
   },
   {
-    "type": "string_literal",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "content",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "while_statement",
     "named": true,
     "fields": {
@@ -353,10 +332,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "\"",
-    "named": false
   },
   {
     "type": "(",
@@ -416,6 +391,10 @@
   },
   {
     "type": "number_literal",
+    "named": true
+  },
+  {
+    "type": "string_literal",
     "named": true
   },
   {
