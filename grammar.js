@@ -18,7 +18,6 @@ module.exports = grammar({
       $.entity_type,
       $.variable_type,
       $.condition,
-      $.event_region_declaration,
       $.event_declaration,
       $.function_call,
     ),
@@ -72,18 +71,6 @@ module.exports = grammar({
       "(", commaSep($.variable_getter), ")",
     ),
 
-    event_region_identifier: $ => choice(
-      "OnPlayerEnterRegion",
-      "OnPlayerLeaveRegion",
-      "OnTitanEnterRegion",
-      "OnTitanLeaveRegion",
-    ),
-    event_region_declaration: $ => seq(
-      $.event_region_identifier,
-      "[", $.string_literal, "]",
-      "(", $.string_literal, ")",
-      "{", "}",
-    ),
     event_identifier: $ => choice(
       "OnFirstLoad",
       "OnRoundStart",
@@ -92,9 +79,14 @@ module.exports = grammar({
       "OnPlayerDieByTitan",
       "OnPlayerDieByPlayer",
       "OnChatInput",
+      "OnPlayerEnterRegion",
+      "OnPlayerLeaveRegion",
+      "OnTitanEnterRegion",
+      "OnTitanLeaveRegion",
     ),
     event_declaration: $ => seq(
       $.event_identifier,
+      optional(seq("[", $.string_literal, "]")),
       "(", commaSep($.string_literal), ")",
       "{", "}",
     ),

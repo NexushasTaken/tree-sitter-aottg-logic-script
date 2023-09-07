@@ -45,10 +45,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "event_region_declaration"
-        },
-        {
-          "type": "SYMBOL",
           "name": "event_declaration"
         },
         {
@@ -361,68 +357,6 @@
         }
       ]
     },
-    "event_region_identifier": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "OnPlayerEnterRegion"
-        },
-        {
-          "type": "STRING",
-          "value": "OnPlayerLeaveRegion"
-        },
-        {
-          "type": "STRING",
-          "value": "OnTitanEnterRegion"
-        },
-        {
-          "type": "STRING",
-          "value": "OnTitanLeaveRegion"
-        }
-      ]
-    },
-    "event_region_declaration": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "event_region_identifier"
-        },
-        {
-          "type": "STRING",
-          "value": "["
-        },
-        {
-          "type": "SYMBOL",
-          "name": "string_literal"
-        },
-        {
-          "type": "STRING",
-          "value": "]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "string_literal"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        },
-        {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
-          "type": "STRING",
-          "value": "}"
-        }
-      ]
-    },
     "event_identifier": {
       "type": "CHOICE",
       "members": [
@@ -453,6 +387,22 @@
         {
           "type": "STRING",
           "value": "OnChatInput"
+        },
+        {
+          "type": "STRING",
+          "value": "OnPlayerEnterRegion"
+        },
+        {
+          "type": "STRING",
+          "value": "OnPlayerLeaveRegion"
+        },
+        {
+          "type": "STRING",
+          "value": "OnTitanEnterRegion"
+        },
+        {
+          "type": "STRING",
+          "value": "OnTitanLeaveRegion"
         }
       ]
     },
@@ -462,6 +412,31 @@
         {
           "type": "SYMBOL",
           "name": "event_identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "["
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string_literal"
+                },
+                {
+                  "type": "STRING",
+                  "value": "]"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",

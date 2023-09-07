@@ -53,30 +53,6 @@
     "fields": {}
   },
   {
-    "type": "event_region_declaration",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "event_region_identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "event_region_identifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "function_call",
     "named": true,
     "fields": {},
@@ -136,10 +112,6 @@
         },
         {
           "type": "event_declaration",
-          "named": true
-        },
-        {
-          "type": "event_region_declaration",
           "named": true
         },
         {
