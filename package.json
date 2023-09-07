@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "lexer",
+    "parser"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -13,5 +17,10 @@
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.20.8"
-  }
+  },
+  "tree-sitter": [
+    {
+      "file-types": "ls"
+    }
+  ]
 }
