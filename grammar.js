@@ -38,7 +38,7 @@ module.exports = grammar({
     statement: $ => seq(
       choice($.call_expression, $.comment),
       optional(";"),
-      optional($.compound_statement)
+      field("body", optional($.compound_statement))
     ),
 
     argument_list: $ => seq(

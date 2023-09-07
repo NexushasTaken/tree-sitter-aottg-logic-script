@@ -189,9 +189,20 @@
   {
     "type": "statement",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -200,10 +211,6 @@
         },
         {
           "type": "comment",
-          "named": true
-        },
-        {
-          "type": "compound_statement",
           "named": true
         }
       ]
