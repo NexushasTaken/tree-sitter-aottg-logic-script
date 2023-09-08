@@ -279,7 +279,7 @@
         },
         {
           "type": "FIELD",
-          "name": "parameters",
+          "name": "arguments",
           "content": {
             "type": "SYMBOL",
             "name": "argument_list"

@@ -87,6 +87,16 @@
     "type": "event_definition",
     "named": true,
     "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
       "body": {
         "multiple": false,
         "required": true,
@@ -103,16 +113,6 @@
         "types": [
           {
             "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "parameters": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "argument_list",
             "named": true
           }
         ]
