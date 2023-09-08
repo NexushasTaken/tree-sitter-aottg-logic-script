@@ -47,7 +47,7 @@ module.exports = grammar({
     ),
     event_definition: $ => seq(
       field("identifier", $.identifier),
-      field("region_name", optional(seq("[", $.string_literal, "]"))),
+      optional(seq("[", field("value", $.string_literal), "]")),
       field("arguments", $.argument_list),
       field("body", $.compound_statement),
     ),

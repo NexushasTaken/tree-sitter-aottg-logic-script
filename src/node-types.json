@@ -117,18 +117,10 @@
           }
         ]
       },
-      "region_name": {
-        "multiple": true,
+      "value": {
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": "[",
-            "named": false
-          },
-          {
-            "type": "]",
-            "named": false
-          },
           {
             "type": "string_literal",
             "named": true
