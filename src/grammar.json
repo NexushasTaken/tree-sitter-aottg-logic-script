@@ -295,12 +295,12 @@
         }
       ]
     },
-    "field_expression": {
+    "method_expression": {
       "type": "SEQ",
       "members": [
         {
           "type": "FIELD",
-          "name": "argument",
+          "name": "type",
           "content": {
             "type": "CHOICE",
             "members": [
@@ -321,7 +321,7 @@
         },
         {
           "type": "FIELD",
-          "name": "field",
+          "name": "method",
           "content": {
             "type": "SYMBOL",
             "name": "identifier"
@@ -340,7 +340,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "field_expression"
+                "name": "method_expression"
               },
               {
                 "type": "SYMBOL",

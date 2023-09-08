@@ -24,12 +24,10 @@ module.exports = grammar({
       $.string_literal,
     )),
 
-
-
     comment: $ => /\/\/.*;?/,
     identifier: $ => /[a-zA-Z]+/,
 
-    compound_statement: $ => seq(
+    body: $ => seq(
       "{",
       repeat($.statement),
       "}",
@@ -37,7 +35,7 @@ module.exports = grammar({
     statement: $ => seq(
       choice($.call_expression, $.comment),
       optional(";"),
-      field("body", optional($.compound_statement))
+      field("body", optional($.body))
     ),
 
     argument_list: $ => seq(
@@ -49,18 +47,18 @@ module.exports = grammar({
       field("identifier", $.identifier),
       optional(seq("[", field("value", $.string_literal), "]")),
       field("arguments", $.argument_list),
-      field("body", $.compound_statement),
+      field("body", $.body),
     ),
 
-    field_expression: $ => seq(
-      field("argument", choice($.call_expression, $.identifier)),
+    method_expression: $ => seq(
+      field("type", choice($.call_expression, $.identifier)),
       ".",
-      field("field", $.identifier)
+      field("method", $.identifier)
     ),
     call_expression: $ => seq(
       field("function",
         choice(
-          $.field_expression,
+          $.method_expression,
           $.identifier,
         ),
       ),

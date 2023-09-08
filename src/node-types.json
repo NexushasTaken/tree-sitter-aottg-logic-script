@@ -57,11 +57,11 @@
         "required": true,
         "types": [
           {
-            "type": "field_expression",
+            "type": "identifier",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "method_expression",
             "named": true
           }
         ]
@@ -130,10 +130,20 @@
     }
   },
   {
-    "type": "field_expression",
+    "type": "method_expression",
     "named": true,
     "fields": {
-      "argument": {
+      "method": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
         "multiple": false,
         "required": true,
         "types": [
@@ -141,16 +151,6 @@
             "type": "call_expression",
             "named": true
           },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "field": {
-        "multiple": false,
-        "required": true,
-        "types": [
           {
             "type": "identifier",
             "named": true
