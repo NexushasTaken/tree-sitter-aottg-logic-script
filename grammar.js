@@ -10,13 +10,6 @@ module.exports = grammar({
 
     boolean_literal: _ => choice("true", "false"),
     number_literal: _ => /-?[0-9]+(.[0-9]+)?/,
-    string_literal: $ => /".+"/,
-    _literal: $ => field("value", choice(
-      $.boolean_literal,
-      $.number_literal,
-      $.string_literal,
-    )),
-
     string_literal: $ => seq(
       '"',
       field(
@@ -25,6 +18,12 @@ module.exports = grammar({
       ),
       '"',
     ),
+    _literal: $ => field("value", choice(
+      $.boolean_literal,
+      $.number_literal,
+      $.string_literal,
+    )),
+
 
 
     comment: $ => /\/\/.*;?/,
