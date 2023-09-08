@@ -107,7 +107,7 @@
       "type": "PATTERN",
       "value": "[a-zA-Z]+"
     },
-    "compound_statement": {
+    "body": {
       "type": "SEQ",
       "members": [
         {
@@ -163,7 +163,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "compound_statement"
+                "name": "body"
               },
               {
                 "type": "BLANK"
@@ -290,7 +290,7 @@
           "name": "body",
           "content": {
             "type": "SYMBOL",
-            "name": "compound_statement"
+            "name": "body"
           }
         }
       ]
